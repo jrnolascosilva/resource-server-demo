@@ -1,0 +1,2 @@
+insert into products(id, code, name, description, price, status, created_at) values(1,'123', 'test1', 'test description 1', 10.13, 'OK', '2023-03-01 00:00:00');
+insert into products(id, code, name, description, price, status, created_at) values(2,'456', 'test2', 'test description 2', 45.13, 'OK', '2023-03-01 00:00:00');
