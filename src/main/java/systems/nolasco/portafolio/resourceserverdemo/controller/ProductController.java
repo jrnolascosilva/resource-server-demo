@@ -18,7 +18,6 @@ import java.util.List;
 @RequiredArgsConstructor
 @Log4j2
 @CrossOrigin(origins = "*")
-
 public class ProductController {
 	private final ProductsService productService;
 	

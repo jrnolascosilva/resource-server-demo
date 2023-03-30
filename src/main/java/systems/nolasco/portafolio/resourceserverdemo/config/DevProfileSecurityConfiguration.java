@@ -16,7 +16,7 @@ import org.springframework.security.web.SecurityFilterChain;
 public class DevProfileSecurityConfiguration {
 
     @Bean
-    @Order(Ordered.HIGHEST_PRECEDENCE)
+    @Order(Ordered.HIGHEST_PRECEDENCE)    
     SecurityFilterChain h2ConsoleSecurityFilterChain(HttpSecurity http) throws Exception {
         http.securityMatcher(PathRequest.toH2Console());
         //http.authorizeHttpRequests(yourCustomAuthorization());
