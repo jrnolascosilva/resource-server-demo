@@ -10,7 +10,6 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
-// @Profile("dev")
 public class SecurityConfig {
 
     @Bean
@@ -19,7 +18,7 @@ public class SecurityConfig {
                 .requestMatchers("/api/v1/products/public").permitAll()
                 .requestMatchers("/api/v1/products/private").authenticated()
                 .requestMatchers("/api/v1/products/private-scoped")
-                .hasAuthority("SCOPE_read:products")
+                .hasAuthority("SCOPE_read:products") // Heads Up: authority in format SCOPE_scope:value
                 .and().cors(withDefaults())
                 .oauth2ResourceServer(server -> server.jwt());
         return http.build();

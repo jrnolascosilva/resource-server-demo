@@ -34,7 +34,7 @@ class ProductControllerTest {
 		final String request = "/api/v1/products/private";
 
 		mockMvc.perform(MockMvcRequestBuilders.get(request)
-				.with(jwt())) // .jwt(j -> j.claim("", ""))))
+				.with(jwt()))
 				.andDo(print())
 				.andExpect(status().isOk());
 	}
@@ -45,7 +45,7 @@ class ProductControllerTest {
 
 		mockMvc.perform(MockMvcRequestBuilders.get(request)
 				.with(jwt().jwt(j -> j
-						.claim("scope", "read:products")))) // "scope": "read:products"
+						.claim("scope", "read:products")))) // Heads Up: scope:value --> ...hasAuthority("SCOPE_scope:value")
 				.andDo(print())
 				.andExpect(status().isOk());
 	}
