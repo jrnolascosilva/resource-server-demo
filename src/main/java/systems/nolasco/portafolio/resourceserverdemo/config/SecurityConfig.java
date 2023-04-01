@@ -18,7 +18,8 @@ public class SecurityConfig {
         http.authorizeHttpRequests()
                 .requestMatchers("/api/v1/products/public").permitAll()
                 .requestMatchers("/api/v1/products/private").authenticated()
-                .requestMatchers("/api/v1/products/private-scoped").hasAuthority("SCOPE_read:messages")
+                .requestMatchers("/api/v1/products/private-scoped")
+                .hasAuthority("SCOPE_read:products")
                 .and().cors(withDefaults())
                 .oauth2ResourceServer(server -> server.jwt());
         return http.build();

@@ -44,7 +44,8 @@ class ProductControllerTest {
 		final String request = "/api/v1/products/private-scoped";
 
 		mockMvc.perform(MockMvcRequestBuilders.get(request)
-				.with(jwt())) // .jwt(j -> j.claim("", ""))))
+				.with(jwt().jwt(j -> j
+						.claim("scope", "read:products")))) // "scope": "read:products"
 				.andDo(print())
 				.andExpect(status().isOk());
 	}
